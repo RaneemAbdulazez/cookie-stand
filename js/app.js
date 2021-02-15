@@ -19,7 +19,7 @@
 //  with a “Daily Location Total”.
 'usesrict';
 
-let hours = ['city','6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
+let hours = ['city', '6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 // let shopps=[Seattle,paris,Tokyo,Dubai,lima];
 // console.log(shopps);
 
@@ -35,15 +35,19 @@ let parent = document.getElementById('shops');
 let table = document.createElement('table');
 parent.appendChild(table);
 
-for(let i=0;i<hours.length;i++){
+for (let i = 0; i < hours.length; i++) {
 
-    let headrow=document.createElement('th');
+    let headrow = document.createElement('th');
     // headrow.textContent=this.name;
     table.appendChild(headrow);
-    headrow.textContent=hours[i];
-    
-    
+    headrow.textContent = hours[i];
+
+
 }
+
+
+
+
 
 
 function shop(name, mincust, maxcust, avgcookie) {
@@ -52,48 +56,108 @@ function shop(name, mincust, maxcust, avgcookie) {
     this.mincust = mincust;
     this.maxcust = maxcust;
     this.avgcookie = avgcookie;
-    // this.custinhour = [];
+    
     this.cookiesinhour = [];
+    this.rowsummation=[];
+    this.cellsummation=[];
 
 }
 
 
 
 shop.prototype.CustomerPerHour = function () {
-    for(let i=0;i<hours.length;i++){
-    this.try = random(this.mincust, this.maxcust) *this.avgcookie;
-    this.try = Math.floor(this.try);
+    for (let i = 0; i < hours.length; i++) {
+        this.try = random(this.mincust, this.maxcust) * this.avgcookie;
+        this.try = Math.floor(this.try);
 
-    this.cookiesinhour.push(this.try);}
+        this.cookiesinhour.push(this.try);
+    }
     // console.log(this.cookiesinhour);
 
 
 }
-function random (min,max){
-    return Math.floor( Math.random()*(max-min+1)+min);
-  }
- 
+function random(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
 
 
-shop.prototype.render=function(){
+
+shop.prototype.rowsum = function () {
+    let sumValue = 0;
+
+    
+    for (let i = 0; i < table.rows.length; i++) {
+        for(let x=0;x<hours.length;x++){
+
+            sumValue = sumValue + parseInt(table.rows[i].cells[x].innerHTML);
+            this.rowsummation.push(sumValue);
+
+            
+        }
+        
+        
+        
+        
+    }
+    
+    console.log('sum is'+sumValue);
+}
+
+
+shop.prototype.lastsummation=function(){
+
+
+}
+shop.prototype.cellsum=function(){
+    let cellsumVal=0;
+
+            // for(let j=0;j<5;j++){
+            for (let i = 0; i < table.rows.length; i++) {
+                // for(let j=0;i<table.rows.length-10;j++){
+
+                cellsumVal = cellsumVal + parseInt(table.rows[i].cells[0].innerHTML);
+                
+                
+            // }
+            
+            
+            
+            
+    
+            
+        }
+        console.log('cellsum',cellsumVal);
+}
+
+shop.prototype.render = function () {
 
     this.CustomerPerHour();
 
-    let shopname=document.createElement('tr');
+    let shopname = document.createElement('tr');
     // headrow.textContent=this.name;
     table.appendChild(shopname);
-    shopname.textContent=this.name;
+    shopname.textContent = this.name;
 
-    for(let i=0;i<hours.length;i++){
-        let cook=document.createElement('td');
+
+    for (let i = 0; i < hours.length; i++) {
+        let cook = document.createElement('td');
         shopname.appendChild(cook);
-        cook.textContent=this.cookiesinhour[i];
+        cook.textContent = this.cookiesinhour[i];
+
+    }
+    this.rowsum();
+    this.cellsum();
+
+
+
+    for (let i = 0; i < hours.length; i++) {
+        let summationofraw = document.createElement('td');
+        shopname.appendChild(summationofraw);
+        summationofraw.textContent = this.rowsummation[i];
+        
     }
 
-
-    // shop.prototype.city=function(){
     
- 
 }
 
 paris.render();
@@ -101,4 +165,11 @@ Seattle.render();
 Tokyo.render();
 lima.render();
 Dubai.render();
+
+
+let sumhour=document.createElement('tr');
+table.appendChild(sumhour);
+sumhour.textContent='total';
+
+
 
