@@ -139,24 +139,12 @@ shop.prototype.render = function () {
     shopname.textContent = this.name;
 
 
-    for (let i = 0; i < hours.length; i++) {
+    for (let i = 0; i < hours.length-1; i++) {
         let cook = document.createElement('td');
         shopname.appendChild(cook);
         cook.textContent = this.cookiesinhour[i];
 
     }
-    this.rowsum();
-    this.cellsum();
-
-
-
-    for (let i = 0; i < hours.length; i++) {
-        let summationofraw = document.createElement('td');
-        shopname.appendChild(summationofraw);
-        summationofraw.textContent = this.rowsummation[i];
-        
-    }
-
     
 }
 
