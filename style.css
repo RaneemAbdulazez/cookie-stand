@@ -1,36 +1,23 @@
-*{
+table,td, th{
+    border: solid black 1px;
+}
 
-    border: black solid ;
+th {
+    border: gray solid;
+    width: 2cm;
 }
 
 
-
-
-
-/* th{ 
-    border:5px double black;
-    font-style: italic;
-    font-size: large;
-    width: 1000px;
-    padding: 10px;
-}
-
-tr{
-    display: block;
-    border:5px double black;
-    max-width: 1000px;
-
-    font-style: italic;
-    font-size: large;
-    padding: 10px;
-}
-tablerow{
-    border:5px dashed black;
-
-}
 td{
+    border: red solid;
+    width: 2cm;
+}
 
-    border:5px dashed black;
-    /* min-width: 66px; */
+#shops{
+    position: relative;
+    margin: auto;
+    left: 50px;
+    top: 300px;
+}
 
- 
+
