@@ -21,3 +21,18 @@ td{
 }
 
 
+form{
+    margin: auto;
+    width: 500px;
+}
+
+/* .inputs{
+    margin: auto;
+    max-width: 300px;
+}
+label{
+    display: block;
+    width: 200px;
+    margin: auto;
+} */
+

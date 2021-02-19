@@ -18,7 +18,7 @@ let hours = [
 ];
 let shops = [];
 let tot = [];
-let Meg = 0;
+let megaTotal = 0;
 
 let parent = document.getElementById("shops");
 
@@ -31,7 +31,7 @@ function shop(name, mincust, maxcust, avgcookie) {
   this.cookiesPerHour = [];
   this.summation = 0;
 
-  console.log(this);
+  // console.log(this);
   this.costperHour(); //ask about
 
   shops.push(this);
@@ -66,7 +66,7 @@ shop.prototype.total = function () {
 
 //create total2 function
 totalHours = function () {
-  let megaTotal = 0;
+  //   let megaTotal = 0;
   // console.log(hours);
   for (let i = 0; i < hours.length; i++) {
     let total = 0;
@@ -76,7 +76,7 @@ totalHours = function () {
       // console.log(this.cookiesPerHour);
       // console.log(cookiesPerHour[i]);
       // console.log(shops[j].cookiesPerHour[i]);
-      console.log(shops[j].cookiesPerHour[i]);
+      // console.log(shops[j].cookiesPerHour[i]);
 
       total += shops[j].cookiesPerHour[i];
       // tot=total;
@@ -84,15 +84,23 @@ totalHours = function () {
       // console.log(shops[j].totalColom);
     }
 
-    console.log("--------");
-    console.log(total);
-    tot.push(total);
+    // console.log("--------");
+    // console.log(total);
+    // tot.push(total);
     // console.log('tot'+tot);
   }
   // console.log(megaTotal);
-  Meg = megaTotal;
   return;
 };
+
+
+
+
+
+
+
+
+
 
 //creat the table tag
 
@@ -150,6 +158,100 @@ let Dubai = new shop("Dubai", 11, 38, 3.7);
 let paris = new shop("Paris", 20, 38, 2.3);
 let lima = new shop("Lima", 2, 16, 4.6);
 
+
+//Event
+let CookieForm =document.getElementById('form');
+
+CookieForm.addEventListener('submit',submitter);
+
+
+function submitter(event){
+  event.preventDefault();
+  console.log(event);
+
+  let name = event.target.cityName.value;
+  console.log('name',name);
+
+  let mincust = event.target.Min.value;
+  console.log('mincust',mincust);
+  
+  // let likesArray = likes.split(',')
+  // // console.log('array',likesArray);
+
+  // let isGoodWithDogs=event.target.isGoodWithDogs.checked;
+  // console.log(isGoodWithDogs);
+
+  // let isGoodWithKids=event.target.isGoodWithKids.checked;
+  // console.log(isGoodWithKids);
+  // let isGoodWithOtherCats=event.target.isGoodWithCats.checked;
+  // console.log(isGoodWithOtherCats);
+
+  // let img = 'images/'+name+'.jpeg';
+
+  // let addedKitten = new Cat(name,likesArray,img,isGoodWithDogs,isGoodWithKids,isGoodWithOtherCats);
+
+
+
+
+  // let container = document.getElementById('kittenProfiles');
+
+  // container.textContent='';
+
+//   for (var i = 0; i < cats.length; i++) {
+//     cats[i].getAge();
+//     cats[i].render();
+//   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//==============================================================================================================
+
+
+
+
+
+
+
+
 for (let i = 0; i < shops.length; i++) {
   // shops[i].costperHour();
   shops[i].render();
@@ -172,4 +274,4 @@ for (let i = 0; i < hours.length; i++) {
 
 let td2 = document.createElement("td");
 tot2.appendChild(td2);
-td2.textContent = Meg;
+td2.textContent = megaTotal;
