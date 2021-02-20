@@ -26,13 +26,21 @@ form{
     width: 500px;
 }
 
-/* .inputs{
-    margin: auto;
-    max-width: 300px;
+.inputs{
+    margin: 10px auto;
+    width: 200px;
+    background-color: lightgray;
+
 }
 label{
-    display: block;
+    display: inline-block;
     width: 200px;
-    margin: auto;
-} */
+}
+
+#submit{
+    position: relative;
+    /* top: -43px; */
+    left: 200px;
+    margin: 10px;}
+
 

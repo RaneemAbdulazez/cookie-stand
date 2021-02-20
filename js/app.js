@@ -16,6 +16,9 @@ let hours = [
   "6pm",
   "7pm",
 ];
+
+
+
 let shops = [];
 let tot = [];
 let megaTotal = 0;
@@ -44,14 +47,14 @@ shop.prototype.costperHour = function () {
     this.cookiesPerHour[x] = Math.floor(this.cost * this.avgcookie);
     // console.log( this.name,this.cookiesPerHour[x]);
   }
-};
+}
 function random(min, max) {
   let rand = Math.floor(Math.random() * (max - min + 1) + min);
   // console.log('rand',rand);
   return rand;
 }
 
-//creat totals function
+//creat totals function FOR each City
 
 shop.prototype.total = function () {
   let sum = 0;
@@ -62,36 +65,31 @@ shop.prototype.total = function () {
   this.summation = sum;
   // console.log();
   return sum;
-};
+}
 
-//create total2 function
+//create total  function FOR each coloumn
 totalHours = function () {
-  //   let megaTotal = 0;
-  // console.log(hours);
+ 
   for (let i = 0; i < hours.length; i++) {
     let total = 0;
     for (let j = 0; j < shops.length; j++) {
-      // console.log(shops);
-
-      // console.log(this.cookiesPerHour);
-      // console.log(cookiesPerHour[i]);
-      // console.log(shops[j].cookiesPerHour[i]);
-      // console.log(shops[j].cookiesPerHour[i]);
+      
 
       total += shops[j].cookiesPerHour[i];
-      // tot=total;
+
+      //megatotal 
       megaTotal += shops[j].cookiesPerHour[i];
-      // console.log(shops[j].totalColom);
+     
     }
 
     // console.log("--------");
     // console.log(total);
-    // tot.push(total);
+    tot.push(total);
     // console.log('tot'+tot);
   }
   // console.log(megaTotal);
   return;
-};
+}
 
 
 
@@ -103,7 +101,7 @@ totalHours = function () {
 
 
 //creat the table tag
-
+function table(){
 let table = document.createElement("table");
 parent.appendChild(table);
 
@@ -120,13 +118,13 @@ for (let i = 0; i < hours.length; i++) {
   firstrow.textContent = hours[i];
 }
 
-//creat hourlytotal cell
+//creat total for each city cell
 
 let headrow1 = document.createElement("th");
 let headrow3 = document.createElement("tr");
 parent.appendChild(headrow1);
-headrow1.textContent = "hourlytotal";
-
+headrow1.textContent = "total";
+}
 //create the cities row
 
 shop.prototype.render = function () {
@@ -150,7 +148,9 @@ shop.prototype.render = function () {
   let tot = document.createElement("td");
   shopname.appendChild(tot);
   tot.textContent = this.summation;
-};
+
+  // totalColom();
+}
 
 let Seattle = new shop("Seattle", 23, 65, 6.3);
 let Tokyo = new shop("Tokyo", 3, 24, 1.2);
@@ -166,6 +166,9 @@ CookieForm.addEventListener('submit',submitter);
 
 
 function submitter(event){
+
+  parent.textContent =" ";
+
   event.preventDefault();
   console.log(event);
 
@@ -174,23 +177,32 @@ function submitter(event){
 
   let mincust = event.target.Min.value;
   console.log('mincust',mincust);
+
+
+  let maxcust = event.target.Max.value;
+  console.log('maxcust',maxcust);
   
-  // let likesArray = likes.split(',')
-  // // console.log('array',likesArray);
 
-  // let isGoodWithDogs=event.target.isGoodWithDogs.checked;
-  // console.log(isGoodWithDogs);
+  let avgcookie = event.target.AverageCookie.value;
+  console.log('avgcookie',avgcookie);
+ 
 
-  // let isGoodWithKids=event.target.isGoodWithKids.checked;
-  // console.log(isGoodWithKids);
-  // let isGoodWithOtherCats=event.target.isGoodWithCats.checked;
-  // console.log(isGoodWithOtherCats);
+  let shop1 = new shop(name, mincust, maxcust, avgcookie);
+  console.log('newShop',shop1);
 
-  // let img = 'images/'+name+'.jpeg';
+  parent.textContent="  ";
 
-  // let addedKitten = new Cat(name,likesArray,img,isGoodWithDogs,isGoodWithKids,isGoodWithOtherCats);
+  table();
+  for (let i = 0; i < shops.length; i++) {
+    // shops[i].costperHour();
+    shops[i].render();
+    
+  }
 
+  totalColom();
 
+  
+  
 
 
   // let container = document.getElementById('kittenProfiles');
@@ -206,59 +218,20 @@ function submitter(event){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //==============================================================================================================
 
 
 
-
-
-
-
-
+table();
 for (let i = 0; i < shops.length; i++) {
   // shops[i].costperHour();
   shops[i].render();
 }
 
 //total2
-totalHours();
+
+function totalColom(){
+  totalHours();
 let tot2 = document.createElement("tr");
 // headrow.textContent=this.name;
 parent.appendChild(tot2);
@@ -270,8 +243,10 @@ for (let i = 0; i < hours.length; i++) {
   let td1 = document.createElement("td");
   tot2.appendChild(td1);
   td1.textContent = tot[i];
+  console.log(tot[i]);
 }
 
 let td2 = document.createElement("td");
 tot2.appendChild(td2);
 td2.textContent = megaTotal;
+}
