@@ -159,6 +159,40 @@ let paris = new shop("Paris", 20, 38, 2.3);
 let lima = new shop("Lima", 2, 16, 4.6);
 
 
+// function shopExist(name, mincust, maxcust, avgcookie);
+
+// // // this.avgcookie = avgcookie;
+// //   this.customerPerHuour = [];
+// //   this.cookiesPerHour = [];
+// //   this.summation = 0;
+// if (storeExist === true) {
+//   console.log('did find name');
+//   shop[index].mincust = parseInt(minCustomers);
+//   shop[index].maxcust = parseInt(maxCustomers);
+//   shop[index].avgcookie = parseFloat(avgCookies);
+//  shop[index].customerPerHuour = [];
+//  shop[index].averageCookiesPerHour = [];
+//   shop[index].cookiesPerHour = 0;
+//   shop[index].costperHour();
+//   shop[index].cookiesPerHour=[];
+// }
+
+// if (shopExist === false) {
+//  let shop1 = new shop(name, mincust, maxcust, avgcookie);
+  
+// }
+
+// //Re-creating our table with the new user inputs
+// makeHeaderRow();
+// for (let i = 0; i < shops.length; i++) {
+//   // shops[i].costperHour();
+//   shops[i].render();
+  
+// }
+// totalColom();
+// }
+
+
 //Event
 let CookieForm =document.getElementById('form');
 
@@ -166,6 +200,7 @@ CookieForm.addEventListener('submit',submitter);
 
 
 function submitter(event){
+
 
   parent.textContent =" ";
 

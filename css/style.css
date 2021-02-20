@@ -1,0 +1,72 @@
+
+
+/* div{
+    position: relative;
+    bottom:  30px;
+    height: auto;
+    background-color: lawngreen;
+
+    margin: auto;
+} */
+
+
+body{
+    height: auto;
+    width: 1200px;
+}
+
+th {
+    /* border: gray solid; */
+   
+    text-align: center;    width: 1.5cm;
+    background-color: #34495E;
+    color: #dd5;
+    font-family: 'Fjalla One', sans-serif;
+    padding: 8px 16px;
+    margin: 8px;
+}
+
+
+td{
+text-align: center;    width: 1.5cm;
+background-color: #34495E;
+color: #ffff;
+font-family: 'Fjalla One', sans-serif;
+padding: 8px 16px;
+margin: 8px;
+font-weight: lighter;
+}
+
+#shops{
+    position: relative;
+    margin: auto;
+    left: 50px;
+    top: 50px;
+    max-width: 1100px;
+}
+
+
+ form{
+    margin: 30px auto;
+    width: 500px;
+
+}
+
+.inputs{
+    margin: 10px auto;
+    width: 200px;
+    background-color: lightgray;
+
+}
+label{
+    display: inline-block;
+    width: 200px;
+}
+
+#submit{
+    position: relative;
+    /* top: -43px; */
+    left: 200px;
+    margin: 10px;}
+
+
