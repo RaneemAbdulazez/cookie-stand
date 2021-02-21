@@ -149,3 +149,7 @@ width: 250px;    top: 60px;
 #SalesPage:hover{
     text-decoration: underline ;
 }
+
+ul {
+    list-style-type: none;
+  }
