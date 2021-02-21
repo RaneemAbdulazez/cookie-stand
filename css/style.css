@@ -71,7 +71,7 @@ label{
     margin: 10px;}
 
 
-ul,li{
+ul,li,a{
     display:inline-block;
     margin: 10px;
     color: #dd5;
