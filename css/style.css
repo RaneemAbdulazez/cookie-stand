@@ -1,19 +1,17 @@
-
-
-/* div{
-    position: relative;
-    bottom:  30px;
-    height: auto;
-    background-color: lawngreen;
-
-    margin: auto;
-} */
-
-
 body{
-    height: auto;
-    width: 1200px;
+    background-color: #34495E;
+
+    
+    margin: auto;
 }
+
+
+header{
+    background-color: #34495E;
+    width: 1200px;
+    margin: auto;
+}
+
 
 th {
     /* border: gray solid; */
@@ -40,9 +38,11 @@ font-weight: lighter;
 #shops{
     position: relative;
     margin: auto;
-    left: 50px;
+    left: 30px;
     top: 50px;
     max-width: 1100px;
+    border:solid #dd5;
+    ;
 }
 
 
@@ -55,12 +55,13 @@ font-weight: lighter;
 .inputs{
     margin: 10px auto;
     width: 200px;
-    background-color: lightgray;
+    background-color: lightblue;
 
 }
 label{
     display: inline-block;
     width: 200px;
+    color: oldlace;
 }
 
 #submit{
@@ -70,3 +71,24 @@ label{
     margin: 10px;}
 
 
+ul,li{
+    display:inline-block;
+    margin: 10px;
+    color: #dd5;
+
+}
+
+
+a :hover{
+    text-decoration: underline;
+}
+
+#head :hover{
+    text-decoration: underline;
+}
+fieldset{
+    border:solid #dd5;
+    position: relative;
+    margin: auto;
+    bottom: 50px
+}

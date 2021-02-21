@@ -25,6 +25,9 @@ let megaTotal = 0;
 
 let parent = document.getElementById("shops");
 
+
+//Contrustor Function 
+
 function shop(name, mincust, maxcust, avgcookie) {
   this.name = name;
   this.mincust = mincust;
@@ -40,6 +43,9 @@ function shop(name, mincust, maxcust, avgcookie) {
   shops.push(this);
 }
 
+
+
+//Customer Per Our Calc
 shop.prototype.costperHour = function () {
   for (let x = 0; x < hours.length; x++) {
     this.cost = random(this.mincust, this.maxcust);
@@ -69,7 +75,7 @@ shop.prototype.total = function () {
 
 //create total  function FOR each coloumn
 totalHours = function () {
- 
+ tot=[];
   for (let i = 0; i < hours.length; i++) {
     let total = 0;
     for (let j = 0; j < shops.length; j++) {
@@ -158,41 +164,19 @@ let Dubai = new shop("Dubai", 11, 38, 3.7);
 let paris = new shop("Paris", 20, 38, 2.3);
 let lima = new shop("Lima", 2, 16, 4.6);
 
+//Shop exist Function
 
-// function shopExist(name, mincust, maxcust, avgcookie);
+// function shopExist(newShop){
+// for (let index = 0; index < shops.length; index++) {
+//   if (shops[index].name===newShop) {
 
-// // // this.avgcookie = avgcookie;
-// //   this.customerPerHuour = [];
-// //   this.cookiesPerHour = [];
-// //   this.summation = 0;
-// if (storeExist === true) {
-//   console.log('did find name');
-//   shop[index].mincust = parseInt(minCustomers);
-//   shop[index].maxcust = parseInt(maxCustomers);
-//   shop[index].avgcookie = parseFloat(avgCookies);
-//  shop[index].customerPerHuour = [];
-//  shop[index].averageCookiesPerHour = [];
-//   shop[index].cookiesPerHour = 0;
-//   shop[index].costperHour();
-//   shop[index].cookiesPerHour=[];
-// }
-
-// if (shopExist === false) {
-//  let shop1 = new shop(name, mincust, maxcust, avgcookie);
+    
+//   }
+  
   
 // }
 
-// //Re-creating our table with the new user inputs
-// makeHeaderRow();
-// for (let i = 0; i < shops.length; i++) {
-//   // shops[i].costperHour();
-//   shops[i].render();
-  
 // }
-// totalColom();
-// }
-
-
 //Event
 let CookieForm =document.getElementById('form');
 
@@ -227,13 +211,13 @@ function submitter(event){
 
   parent.textContent="  ";
 
+  
   table();
   for (let i = 0; i < shops.length; i++) {
     // shops[i].costperHour();
     shops[i].render();
-    
   }
-
+  
   totalColom();
 
   
